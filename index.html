@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tian western Uganda Kasese</title>
+    <style>
+        :root {
+            --primary-color: #e63946;
+            --secondary-color: #f1faee;
+            --accent-color: #a8dadc;
+            --dark-color: #1d3557;
+            --light-color: #f8f9fa;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light-color);
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+        
+        .logo span {
+            color: var(--secondary-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        .auth-buttons button {
+            background-color: var(--dark-color);
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 1rem;
+            transition: background-color 0.3s;
+        }
+        
+        .auth-buttons button:hover {
+            background-color: #14213d;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 700px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #c1121f;
+        }
+        
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--dark-color);
+        }
+        
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .menu-item {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .menu-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .menu-item-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .menu-item-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .menu-item:hover .menu-item-img img {
+            transform: scale(1.1);
+        }
+        
+        .menu-item-content {
+            padding: 1.5rem;
+        }
+        
+        .menu-item-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+        
+        .menu-item-price {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .menu-item-desc {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        
+        .add-to-cart {
+            width: 100%;
+            background-color: var(--accent-color);
+            color: var(--dark-color);
+            border: none;
+            padding: 0.8rem;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .add-to-cart:hover {
+            background-color: #8ecae6;
+        }
+        
+        .about {
+            background-color: var(--secondary-color);
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .about-img {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-text h2 {
+            color: var(--dark-color);
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-info {
+            margin-top: 2rem;
+        }
+        
+        .contact-info p {
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-info i {
+            margin-right: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--accent-color);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            overflow-y: auto;
+        }
+        
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 2rem;
+            border-radius: 10px;
+            width: 90%;
+            max-width: 600px;
+            position: relative;
+            animation: modalopen 0.5s;
+        }
+        
+        @keyframes modalopen {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+        }
+        
+        .close-btn:hover {
+            color: var(--primary-color);
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        
+        .form-submit {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .form-submit:hover {
+            background-color: #c1121f;
+        }
+        
+        .form-footer {
+            margin-top: 1.5rem;
+            text-align: center;
+        }
+        
+        .form-footer a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        /* Cart Styles */
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+        
+        .cart-modal {
+            max-width: 800px;
+        }
+        
+        .cart-items {
+            margin-bottom: 2rem;
+        }
+        
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .cart-item-info {
+            display: flex;
+            align-items: center;
+        }
+        
+        .cart-item-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-right: 1rem;
+        }
+        
+        .cart-item-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .cart-item-name {
+            font-weight: 500;
+        }
+        
+        .cart-item-price {
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        .cart-item-quantity {
+            display: flex;
+            align-items: center;
+        }
+        
+        .cart-item-quantity button {
+            background-color: #eee;
+            border: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .cart-item-quantity span {
+            margin: 0 0.5rem;
+        }
+        
+        .cart-item-remove {
+            color: #ff6b6b;
+            cursor: pointer;
+        }
+        
+        .cart-total {
+            text-align: right;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 2rem;
+        }
+        
+        .cart-actions {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .checkout-btn {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .clear-cart-btn {
+            background-color: #eee;
+            color: #333;
+        }
+        
+        /* Order Tracking */
+        .order-status {
+            display: flex;
+            justify-content: space-between;
+            margin: 2rem 0;
+            position: relative;
+        }
+        
+        .order-status::before {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #eee;
+            z-index: 1;
+        }
+        
+        .status-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 2;
+        }
+        
+        .status-icon {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .status-icon.active {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        .status-label {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .status-label.active {
+            color: var(--primary-color);
+            font-weight: 500;
+        }
+        
+        .order-details {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .order-details h3 {
+            margin-bottom: 1.5rem;
+            color: var(--dark-color);
+        }
+        
+        .order-items {
+            margin-bottom: 1.5rem;
+        }
+        
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .order-summary {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            nav ul {
+                margin-top: 1rem;
+                justify-content: center;
+            }
+            
+            .auth-buttons {
+                margin-top: 1rem;
+            }
+            
+            .hero-content h1 {
+                font-size: 2.2rem;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-img {
+                order: -1;
+            }
+            
+            .cart-item {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .cart-item-info {
+                margin-bottom: 1rem;
+            }
+            
+            .cart-item-quantity {
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Agatha <span> Fds</span></div>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="dstv.html">DSTV</a></li>
+                        <li><a href="bookings.html">Bookings</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons">
+                    <button id="login-btn">Login</button>
+                    <button id="register-btn">Register</button>
+                    <div class="cart-icon" id="cart-icon">
+                        🛒
+                        <span class="cart-count" id="cart-count">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Tian Guest House "💕"💕"</h1>
+            <p>Experience the best of Kasese's cuisine with Agatha Fds. Order now and enjoy our mouth-watering dishes prepared with love and fresh ingredients in western Uganda.</p>
+            <a href="#menu" class="btn">Order Now</a>
+        </div>
+    </section>
+
+    <section class="section" id="menu">
+        <div class="container">
+            <h2 class="section-title">Our Foods</h2>
+            <div class="menu-items" id="menu-items">
+                
+            </div>
+        </div>
+    </section>
+
+    <section class="section about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Us</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Welcome to Tian</h2>
+                    <p>Founded in 2020, Tian in kasese has been serving the western community with delicious, high-quality food made from the freshest ingredients.</p>
+                    <p>Our mission is to provide exceptional dining experiences, whether you're dining in or ordering for delivery. Every dish is prepared with care and passion by our talented chefs.</p>
+                    <div class="contact-info">
+                        <p><i>📍</i> Location: western , Uganda Kasese</p>
+                        <p><i>📞</i> Ian (President): 070668567</p>
+                        <p><i>📞</i> Agatha CEO: 0700007887p>
+                        <p><i>✉️</i> Email: agatha008@gmail.com</p>
+                    </div>
+                </div>
+                <div class="about-img">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Restaurant Interior">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-form">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="form-submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Agatha</h3>
+                    <p>offering  delicious services in kasese since 2020.</p>
+                    <div class="social-links">
+                        <a href="#"><i>📱</i></a>
+                        <a href="#"><i>📘</i></a>
+                        <a href="#"><i>📸</i></a>
+                        <a href="#"><i>🐦</i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="dstv.html">DSTV</a></li>
+                        <li><a href="bookings.html">Bookings</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li>Kasese, Uganda</li>
+                        <li>Ian: 0778678678</li>
+                        <li>Agatha CEO: 0700607709</li>
+                        <li>agatha008@gmail.com</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Opening Hours</h3>
+                    <ul>
+                        <li>Monday - Friday: 8am - 10pm</li>
+                        <li>Saturday: 9am - 11pm</li>
+                        <li>Sunday: 10am - 9pm</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Agatha  Fds. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" name="password" required>
+                </div>
+                <button type="submit" class="form-submit">Login</button>
+                <div class="form-footer">
+                    <p>Don't have an account? <a href="#" id="show-register">Register</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Register Modal -->
+    <div id="register-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Register</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="register-name">Full Name</label>
+                    <input type="text" id="register-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-phone">Phone Number</label>
+                    <input type="tel" id="register-phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-address">Address</label>
+                    <input type="text" id="register-address" name="address" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Password</label>
+                    <input type="password" id="register-password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-confirm-password">Confirm Password</label>
+                    <input type="password" id="register-confirm-password" name="confirm-password" required>
+                </div>
+                <button type="submit" class="form-submit">Register</button>
+                <div class="form-footer">
+                    <p>Already have an account? <a href="#" id="show-login">Login</a></p>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Cart Modal -->
+    <div id="cart-modal" class="modal">
+        <div class="modal-content cart-modal">
+            <span class="close-btn">&times;</span>
+            <h2>Your Cart</h2>
+            <div class="cart-items" id="cart-items">
+                <!-- Cart items will be dynamically loaded here -->
+            </div>
+            <div class="cart-total">
+                Total: <span id="cart-total">UGX 0</span>
+            </div>
+            <div class="cart-actions">
+                <button class="btn clear-cart-btn" id="clear-cart">Clear Cart</button>
+                <button class="btn checkout-btn" id="checkout-btn">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div id="checkout-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Checkout</h2>
+            <form id="checkoutForm">
+                <div class="form-group">
+                    <label for="delivery-address">Delivery Address</label>
+                    <input type="text" id="delivery-address" name="delivery-address" required>
+                </div>
+                <div class="form-group">
+                    <label for="delivery-time">Delivery Time</label>
+                    <input type="datetime-local" id="delivery-time" name="delivery-time" required>
+                </div>
+                <div class="form-group">
+                    <label for="payment-method">Payment Method</label>
+                    <select id="payment-method" name="payment-method" required>
+                        <option value="">Select Payment Method</option>
+                        <option value="cash">Cash on Delivery</option>
+                        <option value="mobile-money">Mobile Money</option>
+                        <option value="credit-card">Credit Card</option>
+                    </select>
+                </div>
+                <div class="form-group" id="mobile-money-details" style="display: none;">
+                    <label for="mobile-money-number">Mobile Money Number</label>
+                    <input type="tel" id="mobile-money-number" name="mobile-money-number">
+                </div>
+                <div class="form-group" id="credit-card-details" style="display: none;">
+                    <label for="card-number">Card Number</label>
+                    <input type="text" id="card-number" name="card-number" placeholder="1234 5678 9012 3456">
+                    <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                        <div style="flex: 1;">
+                            <label for="card-expiry">Expiry Date</label>
+                            <input type="text" id="card-expiry" name="card-expiry" placeholder="MM/YY">
+                        </div>
+                        <div style="flex: 1;">
+                            <label for="card-cvv">CVV</label>
+                            <input type="text" id="card-cvv" name="card-cvv" placeholder="123">
+                        </div>
+                    </div>
+                </div>
+                <div class="order-summary">
+                    <h3>Order Summary</h3>
+                    <div id="checkout-items">
+                        <!-- Order items will be dynamically loaded here -->
+                    </div>
+                    <div class="cart-total">
+                        Total: <span id="checkout-total">UGX 0</span>
+                    </div>
+                </div>
+                <button type="submit" class="form-submit">Place Order</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Order Confirmation Modal -->
+    <div id="order-confirmation-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Order Confirmed!</h2>
+            <div class="order-status">
+                <div class="status-step">
+                    <div class="status-icon active">1</div>
+                    <div class="status-label active">Order Placed</div>
+                </div>
+                <div class="status-step">
+                    <div class="status-icon">2</div>
+                    <div class="status-label">In Preparation</div>
+                </div>
+                <div class="status-step">
+                    <div class="status-icon">3</div>
+                    <div class="status-label">Out for Delivery</div>
+                </div>
+                <div class="status-step">
+                    <div class="status-icon">4</div>
+                    <div class="status-label">Delivered</div>
+                </div>
+            </div>
+            <div class="order-details">
+                <h3>Order Details</h3>
+                <div id="order-details-items">
+                    <!-- Order items will be dynamically loaded here -->
+                </div>
+                <div class="order-summary">
+                    <div>Total:</div>
+                    <div id="order-total">UGX 0</div>
+                </div>
+            </div>
+            <div class="order-details">
+                <h3>Delivery Information</h3>
+                <p><strong>Delivery Address:</strong> <span id="confirmation-address"></span></p>
+                <p><strong>Delivery Time:</strong> <span id="confirmation-time"></span></p>
+                <p><strong>Payment Method:</strong> <span id="confirmation-payment"></span></p>
+            </div>
+            <button class="btn" id="track-order-btn">Track Your Order</button>
+        </div>
+    </div>
+
+    <!-- Order Tracking Modal -->
+    <div id="order-tracking-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Track Your Order</h2>
+            <div class="form-group">
+                <label for="order-id">Order ID</label>
+                <input type="text" id="order-id" name="order-id" placeholder="Enter your order ID">
+            </div>
+            <button class="btn" id="track-btn">Track</button>
+            <div id="tracking-results" style="margin-top: 2rem; display: none;">
+                <div class="order-status">
+                    <div class="status-step">
+                        <div class="status-icon active">1</div>
+                        <div class="status-label active">Order Placed</div>
+                    </div>
+                    <div class="status-step">
+                        <div class="status-icon active">2</div>
+                        <div class="status-label active">In Preparation</div>
+                    </div>
+                    <div class="status-step">
+                        <div class="status-icon">3</div>
+                        <div class="status-label">Out for Delivery</div>
+                    </div>
+                    <div class="status-step">
+                        <div class="status-icon">4</div>
+                        <div class="status-label">Delivered</div>
+                    </div>
+                </div>
+                <div class="order-details">
+                    <h3>Order #12345</h3>
+                    <p><strong>Status:</strong> In Preparation</p>
+                    <p><strong>Estimated Delivery:</strong> Today, 7:30 PM</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Sample menu data
+        const menuItems = [
+            {
+                id: 1,
+                name: "Peppa's Special Burger",
+                description: "Juicy beef patty with cheese, lettuce, tomato, and our special sauce",
+                price: 15000,
+                category: "Burgers",
+                image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            },
+            {
+                id: 2,
+                name: "Lucky's Chicken Wings",
+                description: "Crispy fried chicken wings with your choice of sauce (BBQ, Hot, or Garlic Parmesan)",
+                price: 12000,
+                category: "Chicken",
+                image: "https://images.unsplash.com/photo-1567620832903-9fc6debc209f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            },
+            {
+                id: 3,
+                name: "Mbarara Special Pizza",
+                description: "Thin crust pizza with mozzarella, tomato sauce, and your choice of toppings",
+                price: 25000,
+                category: "Pizza",
+                image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            },
+            {
+                id: 4,
+                name: "Vegetable Salad",
+                description: "Fresh mix of lettuce, tomatoes, cucumbers, onions, and olives with dressing",
+                price: 8000,
+                category: "Salads",
+                image: "https://images.unsplash.com/photo-1546793665-c74683f339c1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            },
+            {
+                id: 5,
+                name: "Grilled Tilapia",
+                description: "Fresh tilapia grilled to perfection with lemon butter sauce and vegetables",
+                price: 20000,
+                category: "Fish",
+                image: "https://images.unsplash.com/photo-1432139555190-58524dae6a55?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            },
+            {
+                id: 6,
+                name: "Samosa",
+                description: "Fragrant rice cooked with tender beef pieces and aromatic spices",
+                price: 1000,
+                category: "Local Dishes",
+                image: "https://images.unsplash.com/photo-1601050690597-df0568f70950?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            },
+            {
+                id: 7,
+                name: "Chocolate Cake",
+                description: "Rich chocolate cake with creamy frosting and chocolate shavings",
+                price: 7000,
+                category: "Desserts",
+                image: "https://images.unsplash.com/photo-1563729784474-d77dbb933a9e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            },
+            {
+                id: 8,
+                name: "Fruit Juice",
+                description: "Freshly squeezed juice (orange, pineapple, mango, or passion fruit)",
+                price: 5000,
+                category: "Drinks",
+                image: "https://images.unsplash.com/photo-1603569283847-aa295f0d016a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+            }
+        ];
+
+        // DOM Elements
+        const menuItemsContainer = document.getElementById('menu-items');
+        const cartIcon = document.getElementById('cart-icon');
+        const cartCount = document.getElementById('cart-count');
+        const cartModal = document.getElementById('cart-modal');
+        const cartItemsContainer = document.getElementById('cart-items');
+        const cartTotal = document.getElementById('cart-total');
+        const clearCartBtn = document.getElementById('clear-cart');
+        const checkoutBtn = document.getElementById('checkout-btn');
+        const checkoutModal = document.getElementById('checkout-modal');
+        const checkoutItemsContainer = document.getElementById('checkout-items');
+        const checkoutTotal = document.getElementById('checkout-total');
+        const checkoutForm = document.getElementById('checkoutForm');
+        const orderConfirmationModal = document.getElementById('order-confirmation-modal');
+        const orderDetailsItems = document.getElementById('order-details-items');
+        const orderTotal = document.getElementById('order-total');
+        const confirmationAddress = document.getElementById('confirmation-address');
+        const confirmationTime = document.getElementById('confirmation-time');
+        const confirmationPayment = document.getElementById('confirmation-payment');
+        const trackOrderBtn = document.getElementById('track-order-btn');
+        const orderTrackingModal = document.getElementById('order-tracking-modal');
+        const loginModal = document.getElementById('login-modal');
+        const registerModal = document.getElementById('register-modal');
+        const loginBtn = document.getElementById('login-btn');
+        const registerBtn = document.getElementById('register-btn');
+        const showRegister = document.getElementById('show-register');
+        const showLogin = document.getElementById('show-login');
+        const closeBtns = document.querySelectorAll('.close-btn');
+        const paymentMethod = document.getElementById('payment-method');
+        const mobileMoneyDetails = document.getElementById('mobile-money-details');
+        const creditCardDetails = document.getElementById('credit-card-details');
+
+        // Cart state
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Initialize the app
+        function init() {
+            renderMenuItems();
+            updateCartCount();
+            setupEventListeners();
+        }
+
+        // Render menu items
+        function renderMenuItems() {
+            menuItemsContainer.innerHTML = '';
+            menuItems.forEach(item => {
+                const menuItemElement = document.createElement('div');
+                menuItemElement.className = 'menu-item';
+                menuItemElement.innerHTML = `
+                    <div class="menu-item-img">
+                        <img src="${item.image}" alt="${item.name}">
+                    </div>
+                    <div class="menu-item-content">
+                        <h3 class="menu-item-title">${item.name}</h3>
+                        <p class="menu-item-price">UGX ${item.price.toLocaleString()}</p>
+                        <p class="menu-item-desc">${item.description}</p>
+                        <button class="add-to-cart" data-id="${item.id}">Add to Cart</button>
+                    </div>
+                `;
+                menuItemsContainer.appendChild(menuItemElement);
+            });
+        }
+
+        // Setup event listeners
+        function setupEventListeners() {
+            // Add to cart buttons
+            document.addEventListener('click', function(e) {
+                if (e.target.classList.contains('add-to-cart')) {
+                    const itemId = parseInt(e.target.getAttribute('data-id'));
+                    addToCart(itemId);
+                }
+                
+                // Increment quantity
+                if (e.target.classList.contains('increment')) {
+                    const itemId = parseInt(e.target.closest('.cart-item').getAttribute('data-id'));
+                    updateQuantity(itemId, 1);
+                }
+                
+                // Decrement quantity
+                if (e.target.classList.contains('decrement')) {
+                    const itemId = parseInt(e.target.closest('.cart-item').getAttribute('data-id'));
+                    updateQuantity(itemId, -1);
+                }
+                
+                // Remove item
+                if (e.target.classList.contains('cart-item-remove')) {
+                    const itemId = parseInt(e.target.closest('.cart-item').getAttribute('data-id'));
+                    removeFromCart(itemId);
+                }
+            });
+            
+            // Cart icon click
+            cartIcon.addEventListener('click', function() {
+                renderCartItems();
+                cartModal.style.display = 'block';
+            });
+            
+            // Clear cart
+            clearCartBtn.addEventListener('click', clearCart);
+            
+            // Checkout button
+            checkoutBtn.addEventListener('click', function() {
+                cartModal.style.display = 'none';
+                renderCheckoutItems();
+                checkoutModal.style.display = 'block';
+            });
+            
+            // Payment method change
+            paymentMethod.addEventListener('change', function() {
+                mobileMoneyDetails.style.display = 'none';
+                creditCardDetails.style.display = 'none';
+                
+                if (this.value === 'mobile-money') {
+                    mobileMoneyDetails.style.display = 'block';
+                } else if (this.value === 'credit-card') {
+                    creditCardDetails.style.display = 'block';
+                }
+            });
+            
+            // Checkout form submission
+            checkoutForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                checkoutModal.style.display = 'none';
+                
+                // Get form values
+                const deliveryAddress = document.getElementById('delivery-address').value;
+                const deliveryTime = document.getElementById('delivery-time').value;
+                const paymentMethodValue = document.getElementById('payment-method').value;
+                
+                // Format delivery time
+                const deliveryTimeFormatted = new Date(deliveryTime).toLocaleString();
+                
+                // Render order confirmation
+                renderOrderConfirmation(deliveryAddress, deliveryTimeFormatted, paymentMethodValue);
+                
+                // Clear cart
+                clearCart();
+            });
+            
+            // Track order button
+            trackOrderBtn.addEventListener('click', function() {
+                orderConfirmationModal.style.display = 'none';
+                orderTrackingModal.style.display = 'block';
+            });
+            
+            // Track button in tracking modal
+            document.getElementById('track-btn').addEventListener('click', function() {
+                document.getElementById('tracking-results').style.display = 'block';
+            });
+            
+            // Login and register modals
+            loginBtn.addEventListener('click', function() {
+                loginModal.style.display = 'block';
+            });
+            
+            registerBtn.addEventListener('click', function() {
+                registerModal.style.display = 'block';
+            });
+            
+            showRegister.addEventListener('click', function(e) {
+                e.preventDefault();
+                loginModal.style.display = 'none';
+                registerModal.style.display = 'block';
+            });
+            
+            showLogin.addEventListener('click', function(e) {
+                e.preventDefault();
+                registerModal.style.display = 'none';
+                loginModal.style.display = 'block';
+            });
+            
+            // Close modals when clicking X
+            closeBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    this.closest('.modal').style.display = 'none';
+                });
+            });
+            
+            // Close modals when clicking outside
+            window.addEventListener('click', function(e) {
+                if (e.target.classList.contains('modal')) {
+                    e.target.style.display = 'none';
+                }
+            });
+            
+            // Form submissions
+            document.getElementById('loginForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Login functionality will be implemented in the backend');
+                loginModal.style.display = 'none';
+            });
+            
+            document.getElementById('registerForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Registration functionality will be implemented in the backend');
+                registerModal.style.display = 'none';
+            });
+            
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert('Thank you for your message! We will get back to you soon.');
+                this.reset();
+            });
+        }
+
+        // Cart functions
+        function addToCart(itemId) {
+            const item = menuItems.find(i => i.id === itemId);
+            const existingItem = cart.find(i => i.id === itemId);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    ...item,
+                    quantity: 1
+                });
+            }
+            
+            updateCart();
+        }
+
+        function removeFromCart(itemId) {
+            cart = cart.filter(item => item.id !== itemId);
+            updateCart();
+        }
+
+        function updateQuantity(itemId, change) {
+            const item = cart.find(item => item.id === itemId);
+            
+            if (item) {
+                item.quantity += change;
+                
+                if (item.quantity <= 0) {
+                    removeFromCart(itemId);
+                } else {
+                    updateCart();
+                }
+            }
+        }
+
+        function clearCart() {
+            cart = [];
+            updateCart();
+            cartModal.style.display = 'none';
+        }
+
+        function updateCart() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+            updateCartCount();
+            renderCartItems();
+        }
+
+        function updateCartCount() {
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            cartCount.textContent = totalItems;
+        }
+
+        function renderCartItems() {
+            cartItemsContainer.innerHTML = '';
+            
+            if (cart.length === 0) {
+                cartItemsContainer.innerHTML = '<p>Your cart is empty</p>';
+                cartTotal.textContent = 'UGX 0';
+                return;
+            }
+            
+            cart.forEach(item => {
+                const cartItemElement = document.createElement('div');
+                cartItemElement.className = 'cart-item';
+                cartItemElement.setAttribute('data-id', item.id);
+                cartItemElement.innerHTML = `
+                    <div class="cart-item-info">
+                        <div class="cart-item-img">
+                            <img src="${item.image}" alt="${item.name}">
+                        </div>
+                        <div>
+                            <div class="cart-item-name">${item.name}</div>
+                            <div class="cart-item-price">UGX ${item.price.toLocaleString()}</div>
+                        </div>
+                    </div>
+                    <div class="cart-item-quantity">
+                        <button class="decrement">-</button>
+                        <span>${item.quantity}</span>
+                        <button class="increment">+</button>
+                    </div>
+                    <div class="cart-item-remove">Remove</div>
+                `;
+                cartItemsContainer.appendChild(cartItemElement);
+            });
+            
+            // Update total
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            cartTotal.textContent = `UGX ${total.toLocaleString()}`;
+        }
+
+        function renderCheckoutItems() {
+            checkoutItemsContainer.innerHTML = '';
+            
+            cart.forEach(item => {
+                const checkoutItemElement = document.createElement('div');
+                checkoutItemElement.className = 'order-item';
+                checkoutItemElement.innerHTML = `
+                    <div>${item.name} x ${item.quantity}</div>
+                    <div>UGX ${(item.price * item.quantity).toLocaleString()}</div>
+                `;
+                checkoutItemsContainer.appendChild(checkoutItemElement);
+            });
+            
+            // Update total
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            checkoutTotal.textContent = `UGX ${total.toLocaleString()}`;
+        }
+
+        function renderOrderConfirmation(address, time, paymentMethod) {
+            orderDetailsItems.innerHTML = '';
+            
+            cart.forEach(item => {
+                const orderItemElement = document.createElement('div');
+                orderItemElement.className = 'order-item';
+                orderItemElement.innerHTML = `
+                    <div>${item.name} x ${item.quantity}</div>
+                    <div>UGX ${(item.price * item.quantity).toLocaleString()}</div>
+                `;
+                orderDetailsItems.appendChild(orderItemElement);
+            });
+            
+            // Update total
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            orderTotal.textContent = `UGX ${total.toLocaleString()}`;
+            
+            // Update delivery info
+            confirmationAddress.textContent = address;
+            confirmationTime.textContent = time;
+            confirmationPayment.textContent = paymentMethod.charAt(0).toUpperCase() + paymentMethod.slice(1);
+            
+            // Show confirmation modal
+            orderConfirmationModal.style.display = 'block';
+        }
+
+        // Initialize the app
+        init();
+    </script>
+</body>
+</html>
